@@ -407,6 +407,8 @@ sudo -u www-data /var/www/passbolt/bin/cake passbolt healthcheck
 - فایروال را همیشه فعال نگه دارید
 - کلید GPG و پیکربندی را در مکان **امن و جدا** از سرور نگهداری کنید
 - از **HTTPS اجباری** مطمئن شوید (redirect از 80 به 443)
+
+---
 mysql -u root passbolt -e "SELECT token FROM authentication_tokens WHERE user_id = (SELECT id FROM users WHERE username = '......@.....local') ORDER BY created DESC LIMIT 1;"
 mysql -u root passbolt -e "SELECT id FROM users WHERE username = '.....@.....local';"
 ---
