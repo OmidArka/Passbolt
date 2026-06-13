@@ -84,6 +84,7 @@ timedatectl status
 ### تنظیم فایروال
 
 ```bash
+export PATH=$PATH:/sbin:/usr/sbin
 sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
@@ -409,8 +410,10 @@ sudo -u www-data /var/www/passbolt/bin/cake passbolt healthcheck
 - از **HTTPS اجباری** مطمئن شوید (redirect از 80 به 443)
 
 ---
-mysql -u root passbolt -e "SELECT token FROM authentication_tokens WHERE user_id = (SELECT id FROM users WHERE username = '......@.....local') ORDER BY created DESC LIMIT 1;"
 mysql -u root passbolt -e "SELECT id FROM users WHERE username = '.....@.....local';"
+mysql -u root passbolt -e "SELECT token FROM authentication_tokens WHERE user_id = (SELECT id FROM users WHERE username = '......@.....local') ORDER BY created DESC LIMIT 1;"
+هر دوتا کپی بشه جلوش
+https://172.20.201.37/setup/start/16434782e91ab86c7/124f5a78-4c-a88a-364ee49a2e
 ---
 
 *آخرین به‌روزرسانی: ۲۰۲۵ | مبتنی بر مستندات رسمی Passbolt CE*
